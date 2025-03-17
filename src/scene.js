@@ -178,7 +178,7 @@ export class Scene {
 
           }
 
-          if(object.name==="adBacks" || object.name==="adPictures"){
+          if(object.name==="adBacks" || object.name==="adPictures_1" || object.name==="adPictures_2"){
 
             this.adDesktop.push(object);
 
@@ -578,6 +578,8 @@ export class Scene {
           gsap.to(document.getElementById("meterDiv"), { opacity:1, duration: .5, ease: "linear" });
           gsap.to(document.getElementById("score"), { opacity:1, duration: .5, ease: "linear" });
 
+          gsap.to(document.getElementById("instructions"), { opacity:1, duration: .5, ease: "linear" });
+        
           this.action="set ball"
           this.count=0;
 
@@ -635,7 +637,7 @@ export class Scene {
           this.action="wait time"
           
         }
-        
+
         //-------------------------------------------------
 
       }else if(this.action==="wait time"){
@@ -695,6 +697,8 @@ export class Scene {
 
       }else if(this.action==="shoot"){
 
+        gsap.to(document.getElementById("instructions"), { opacity:0, duration: .5, ease: "linear" });
+        
         this.basketsShot+=1;
 
         // this.horNum=0;
@@ -904,15 +908,15 @@ export class Scene {
           duration: 0.3 
       });
 
-      netTimeline.to(this.net.scale, { 
-          y: .9,
-          duration: 0.1 
-      });
+      // netTimeline.to(this.net.scale, { 
+      //     y: .9,
+      //     duration: 0.1 
+      // });
 
-      netTimeline.to(this.net.scale, { 
-          y: 1,
-          duration: 0.05 
-      });
+      // netTimeline.to(this.net.scale, { 
+      //     y: 1,
+      //     duration: 0.05 
+      // });
 
     }
 
